@@ -23,6 +23,10 @@ The first time it's run, `ci/install.sh` will:
 re-use the cache it created.  When setting up from cache, it will take about
 ~1-2 minutes.
 
+The script is clever enough to detect changes in the packages it's been
+requested to install (or the channel, or the version of Miniconda), and
+transparently refresh the cache.
+
 n.b: for caching to work, make sure you have the following entry:
 ```
 cache:
@@ -55,12 +59,10 @@ The `language:` section doesn't matter, as we'll be using Python and the
 related tools from Anaconda.  Use whichever language makes Travis spin up
 the container fastest.
 
-## Caveats
+Also, see the `.travis.yml` file in the repository for how to pass a different
+channel and a set of packages to be installed.
 
-* If you change the arguments passed to `ci/install.sh`, make sure to
-  (manually) wipe the TravisCI cache (otherwise they won't get picked up). 
-  Bonus points: teach `ci/install.sh` to wipe the cache if it detects the
-  arguments have changed, and send me a PR.
+## Caveats
 
 * If you need to build C/C++ sources, use Anaconda's `gcc` by adding it
   as an argument to `ci/install.sh`. E.g.: `./ci/install.sh gcc lsst-distrib`.
