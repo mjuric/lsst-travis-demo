@@ -1,7 +1,7 @@
 language: C
 
 install:
-  - CHANNEL=http://eupsforge.net/conda/dev ./ci/install.sh lsst-sims
+  - CHANNEL=http://eupsforge.net/conda/dev ./ci/install.sh lsst-sims pandas nose
 
 cache:
   directories:
