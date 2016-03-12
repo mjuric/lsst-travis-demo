@@ -66,3 +66,5 @@ channel and a set of packages to be installed.
 
 * If you need to build C/C++ sources, use Anaconda's `gcc` by adding it
   as an argument to `ci/install.sh`. E.g.: `./ci/install.sh gcc lsst-distrib`.
+
+## Test for branch builds
